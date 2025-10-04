@@ -22,7 +22,7 @@
 
         body {
             font-family: 'Cairo', sans-serif;
-            line-height: 1.8;
+            line-height: 1.6; /* تم التعديل: لزيادة التناسق وتقليل التباعد قليلاً */
             color: var(--text-dark);
             background: #ecf0f1;
             min-height: 100vh;
@@ -132,7 +132,10 @@
             transition: all .25s ease;
         }
 
-        .section:hover { transform: translateY(-4px); box-shadow: 0 10px 40px rgba(0,0,0,0.12); }
+        .section:hover { 
+            transform: translateY(-2px); /* تم التعديل: حركة أقل */
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08); /* تم التعديل: ظل أنحف وأخف */
+        }
 
         .section-header {
             display: flex;
@@ -160,11 +163,14 @@
             margin-bottom: 18px;
             background: linear-gradient(135deg,#f8f9fa 0%, #e9ecef 100%);
             border-radius: 12px;
-            border-right: 5px solid var(--accent-gold);
+            border-right: 3px solid var(--accent-gold); /* تم التعديل: الإطار الجانبي أنحف (من 5px إلى 3px) */
             transition: all .2s ease;
         }
 
-        .experience-card:hover { transform: translateX(-6px); box-shadow: 0 8px 28px rgba(0,0,0,0.10); }
+        .experience-card:hover { 
+            transform: translateX(-3px); /* تم التعديل: حركة أقل */
+            box-shadow: 0 4px 18px rgba(0,0,0,0.08); /* تم التعديل: ظل أنحف وأخف */
+        }
 
         .experience-header { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 10px; }
 
@@ -181,7 +187,8 @@
         /* Education */
         .education-card {
             display:flex; gap:18px; align-items:flex-start; padding:22px; border-radius:12px;
-            background: linear-gradient(135deg,#e8f5e9 0%, #c8e6c9 100%); border-right:5px solid #4caf50;
+            background: linear-gradient(135deg,#e8f5e9 0%, #c8e6c9 100%); 
+            border-right: 3px solid #4caf50; /* تم التعديل: الإطار الجانبي أنحف (من 5px إلى 3px) */
         }
         .education-icon { width:56px; height:56px; background:#4caf50; border-radius:10px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:20px; }
         .education-content h3 { font-size:1.25em; font-weight:800; color:var(--primary-dark); margin-bottom:6px; }
@@ -206,19 +213,64 @@
         .contact-btn { background:var(--primary-blue); color:#fff; padding:10px 16px; border-radius:10px; display:inline-flex; gap:8px; align-items:center; text-decoration:none; font-weight:700; box-shadow:0 6px 18px rgba(44,62,80,0.12); }
         .contact-btn .fa { color:var(--accent-gold); }
 
-        /* responsive */
+        /* ==================================== */
+        /* التعديلات الخاصة بالشاشات المتجاوبة */
+        /* ==================================== */
+
         @media (max-width: 968px) {
             .header-content { grid-template-columns: 1fr; text-align:center; gap:24px; }
             .profile-photo { width:160px; height:160px; margin:0 auto; }
-            .profile-info h1 { font-size:2.2em; }
-            .main-container { margin-top: -30px; padding: 18px; }
-            .section { padding: 22px; }
+            
+            /* تم التعديل: تصغير الخطوط على الشاشات المتوسطة */
+            .profile-info h1 { font-size: 2em; margin-bottom: 8px; }
+            .profile-subtitle { font-size: 1.1em; margin-bottom: 15px; }
+            .profile-description { font-size: 0.95em; }
+
+            .main-container { margin-top: -20px; padding: 15px; } /* تم التعديل: رفع وتضييق المسافات */
+            .section { padding: 20px; margin-bottom: 20px; } /* تم التعديل: تقليل التباعد الداخلي والخارجي */
+
+            .section-title { font-size: 1.6em; } /* تم التعديل: تصغير عنوان القسم */
+            .section-icon { width: 48px; height: 48px; font-size: 20px; } /* تم التعديل: تصغير أيقونة القسم */
+
+            /* تعديل تنسيق نقاط الاتصال لجعلها أضيق */
+            .contact-grid { gap: 8px; }
+            .contact-item { padding: 8px 10px; gap: 8px; }
+            .contact-item span { font-size: 0.9em; }
         }
 
         @media (max-width: 480px) {
-            .profile-photo { width:140px; height:140px; }
-            .profile-info h1 { font-size:1.6em; }
-            .section-title { font-size:1.2em; }
+            .profile-photo { width: 120px; height: 120px; border-width: 4px; } /* تم التعديل: تصغير الصورة والإطار */
+            
+            /* تم التعديل: تصغير أقصى للخطوط على شاشات الموبايل الصغيرة */
+            .profile-info h1 { font-size: 1.4em; } 
+            .profile-subtitle { font-size: 0.9em; }
+            .profile-description { font-size: 0.9em; }
+            
+            .section-title { font-size: 1.1em; }
+            .section-icon { width: 40px; height: 40px; font-size: 18px; }
+
+            /* تصغير خطوط الخبرة */
+            .experience-title { font-size: 1.1em; } 
+            .experience-org { font-size: 0.95em; }
+            .duration-badge { padding: 5px 12px; font-size: 0.85em; }
+            .experience-list li { font-size: 0.9em; padding-right: 20px; }
+
+            /* تصغير خطوط التعليم */
+            .education-content h3 { font-size: 1.1em; }
+            .education-content .university { font-size: 0.95em; }
+            .education-content .year-info { font-size: 0.9em; }
+            .education-icon { width: 48px; height: 48px; font-size: 18px; }
+
+            /* تصغير خطوط المهارات */
+            .skill-category h3 { font-size: 1em; }
+            .skill-tag { padding: 6px 10px; font-size: 0.85em; }
+
+            /* تصغير خطوط الدورات */
+            .course-title { font-size: 0.95em; }
+            .course-provider { font-size: 0.85em; }
+
+            /* لضمان تناسق الأزرار في شاشة صغيرة جداً */
+            .contact-btn { font-size: 0.9em; padding: 8px 12px; }
         }
 
         @media print {
@@ -229,7 +281,6 @@
     </style>
 </head>
 <body>
-    <!-- HEADER -->
     <header class="header-section">
         <div class="header-content">
             <img src="https://i.postimg.cc/tJfwnRft/Whats-App-Image-2025-07-09-at-2-48-52-PM.jpg"
@@ -251,10 +302,8 @@
         </div>
     </header>
 
-    <!-- MAIN -->
     <main class="main-container">
 
-        <!-- الخبرات العملية -->
         <section class="section">
             <div class="section-header">
                 <div class="section-icon"><i class="fas fa-briefcase"></i></div>
@@ -314,7 +363,6 @@
             </div>
         </section>
 
-        <!-- الحياة الحزبية والسياسية -->
         <section class="section">
             <div class="section-header">
                 <div class="section-icon"><i class="fas fa-landmark"></i></div>
@@ -374,7 +422,6 @@
             </div>
         </section>
 
-        <!-- التعليم -->
         <section class="section">
             <div class="section-header">
                 <div class="section-icon"><i class="fas fa-graduation-cap"></i></div>
@@ -391,7 +438,6 @@
             </div>
         </section>
 
-        <!-- المهارات -->
         <section class="section">
             <div class="section-header">
                 <div class="section-icon"><i class="fas fa-lightbulb"></i></div>
@@ -441,7 +487,6 @@
             </div>
         </section>
 
-        <!-- الدورات التدريبية -->
         <section class="section">
             <div class="section-header">
                 <div class="section-icon"><i class="fas fa-chalkboard-teacher"></i></div>
@@ -491,7 +536,6 @@
             </div>
         </section>
 
-        <!-- تواصل / أزرار -->
         <section class="section">
             <div class="section-header">
                 <div class="section-icon"><i class="fas fa-address-card"></i></div>
@@ -518,4 +562,3 @@
     </main>
 </body>
 </html>
-
